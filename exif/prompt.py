@@ -42,13 +42,13 @@ conn = pymysql.connect(host='15.164.231.65', port=51143, user='grim', password='
 cursor = conn.cursor()
 
 #start
-week_start=37 #start week set
+week_start=38 #week_size set
 home = "http://www.ptserach.info"
 driver=webdriver.Safari()
 file_name="data.xlsx"
 
 #week 별 page 확인
-for week in range(week_start):
+for week in range(1):
     diction=[]
     for page in range(12):
         url="https://www.ptsearch.info/articles/list_best/?page="+str(page+1)+"&week="+str(week_start-week)
@@ -63,7 +63,7 @@ for week in range(week_start):
         head=["id","name","file_link","prompt","negative_prompt","size","steps","sampler","cfg_scale","seed","model_hash","clip_skip","denoising_strentgh"]
 
         #find pic
-        while drivercheck(driver,cursor_num) and cursor_num < 20:
+        while drivercheck(driver,cursor_num) and cursor_num < 30:
             print(url)
             #img의 원본 주소 가져오기
             temp = driver.find_element(By.CSS_SELECTOR,f'body > main > div.container > div:nth-child({cursor_num}) > a').get_attribute("href")
