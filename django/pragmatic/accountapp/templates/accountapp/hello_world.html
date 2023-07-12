@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
+    <style>
+        .testing{
+            background-color: white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+    </style>
     <div style="height: 20rem;background-color: aqua; boreder-radius: 1rem; margin : 2rem;">
-        testing
+        <h1>testing</h1>
+        <div class="testing" style="display: block;">block</div>
+        <div class="testing" style="display: inline;">inline</div>
+        <div class="testing" style="display: None;">None</div>
+        <div class="testing" style="display: inline-block;">inline-block</div>
+        {% comment %} <div class="testing" style="visibillity: hidden;">hidden</div> {% endcomment %}
+        <div class="testing" style="display: block;">block</div>
     </div>
+    
+    
 {% endblock  %}
