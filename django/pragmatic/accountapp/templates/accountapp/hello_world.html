@@ -8,14 +8,33 @@
             margin: 1rem;
         }
     </style>
-    <div style="height: 20rem;background-color: aqua; boreder-radius: 1rem; margin : 2rem;">
-        <h1>testing</h1>
-        <div class="testing" style="display: block;">block</div>
+    <div style="text-align: center;">
+        <h1 class="pragmatic_logo">
+            Hello World List!
+        </h1>
+
+        {% comment %} <div class="testing" style="display: block;">block</div>
         <div class="testing" style="display: inline;">inline</div>
         <div class="testing" style="display: None;">None</div>
         <div class="testing" style="display: inline-block;">inline-block</div>
-        {% comment %} <div class="testing" style="visibillity: hidden;">hidden</div> {% endcomment %}
-        <div class="testing" style="display: block;">block</div>
+        <div class="testing" style="visibillity: hidden;">hidden</div> 
+        <div class="testing" style="display: block;">block</div> {% endcomment %}
+        <form action="/account/hello_world/" method="post">
+            {% csrf_token %}
+            <div>
+                <input type="text" name="hello_world_input">
+            </div>
+            <input type="submit" class="btn btn-primary" value="POST">
+        </form>
+        {% if hello_world_list %}
+        {% for hello_world in hello_world_list %}
+        <h4 class="pragmatic_logo">
+            {{hello_world.text}}
+        </h4>
+        {% endfor %}
+            
+        {% endif %}
+        
     </div>
     
     
