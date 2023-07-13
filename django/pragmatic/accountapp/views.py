@@ -7,8 +7,11 @@ from django.urls import reverse
 def hello_world(request):
     if request.method =="POST":
         temp=request.POST.get('hello_world_input')
+        trear=request.POST.get('pw')
+
         new_hello_world=HelloWorld()
         new_hello_world.text=temp
+        #new_hello_world.password=trear
         new_hello_world.save()
 
         hello_world_list=HelloWorld.objects.all()
