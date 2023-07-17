@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .testing{
+            background-color: white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+    </style>
+    <div style="text-align: center;">
+        <h1 class="pragmatic_logo">
+            Civit List!
+        </h1>
+        <div style="text-align: center;margin: 2rem 0;">
+            <div>
+                <table class="table-contents" style="padding:10px; text-align:center;">
+                    <tr>
+                        <th>name</th>
+                        <th>prompt</th>
+                        <th>model</th>
+                    </tr>
+                    {% for post in posts %}
+                    <tr>
+                        <td>
+                            <img src="{{post.name}}"/>
+                        </td>
+                        {% comment %} <td>{{post.name}}</td> {% endcomment %}
+                        <td>{{post.prompt}}</td>
+                        <td>{{post.model_hash}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
+{% endblock  %}
