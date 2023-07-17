@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from accountapp.models import HelloWorld
+from accountapp.models import HelloWorld, Test, CivitData
 from django.urls import reverse
 
 # Create your views here.
@@ -22,3 +22,6 @@ def hello_world(request):
         return render(request,'accountapp/hello_world.html',context={'hello_world_list':hello_world_list})
     #return HttpResponse('hello world!')
 
+def vew(request):
+    posts=CivitData.objects.all().order_by('id')[:1]
+    return render(request,'accountapp/vew.html',context={'posts':posts})

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .testing{
+            background-color: white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+    </style>
+    <div style="text-align: center;">
+        <h1 class="pragmatic_logo">
+            Hello World List!
+        </h1>
+
+        {% comment %} <div class="testing" style="display: block;">block</div>
+        <div class="testing" style="display: inline;">inline</div>
+        <div class="testing" style="display: None;">None</div>
+        <div class="testing" style="display: inline-block;">inline-block</div>
+        <div class="testing" style="visibillity: hidden;">hidden</div> 
+        <div class="testing" style="display: block;">block</div> {% endcomment %}
+        <form action="/account/vew/" method="post">
+            {% csrf_token %}
+            <div>
+                <input class="pragmatic_logo" type="text" name="hello_world_input">
+                <input type="password" name="pw">
+            </div>
+        </form>
+        <div style="text-align: center;margin: 2rem 0;">
+            <div>
+                <table class="table-contents" style="padding:10px; text-align:center;">
+                    <tr>
+                        <th>name</th>
+                        <th>prompt</th>
+                        <th>model</th>
+                    </tr>
+                    {% for post in posts %}
+                    <tr>
+                        <td>{{post.name}}</td>
+                        <td>{{post.prompt}}</td>
+                        <td>{{post.model_hash}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
+{% endblock  %}
