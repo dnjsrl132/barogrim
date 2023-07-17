@@ -19,3 +19,9 @@ class CivitTest(models.Model):
     class Meta:
         managed = False
         db_table = 'civit_test'
+'''
+class Product(models.Model):
+    user_id = models.CharField(max_length=10, blank=True, null=True)
+    name = models.CharField(max_lenght=255,blank=True,null=True)
+    imgfile=models.ImageField(null=True,upload_to="",blank=True)
+'''
