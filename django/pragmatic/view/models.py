@@ -22,6 +22,6 @@ class CivitTest(models.Model):
 class Product(models.Model):
     user_id = models.CharField(primary_key=True, max_length=10)
     imgfile = models.ImageField(null=True,upload_to="",blank=True)
-
+    name = models.CharField(max_length=255,blank=True,null=True)
     def __str__(self):
         return str(self.user_id)

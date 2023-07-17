@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .testing{
+            background-color: white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+    </style>
+    <div style="text-align: center;">
+        <h1 class="pragmatic_logo">
+            viewing List!
+        </h1>
+        <div style="text-align: center; margin: 2rem;">
+                <table class="table-contents" style="text-align:center; width: 100%;">
+                    <tr>
+                        <th>name</th>
+                        <th>prompt</th>
+                    </tr>
+                    {% for post in posts %}
+                    <tr>
+                        <td>
+                            {% comment %} <img class="image" src="{{post.image_file}}"/> {% endcomment %}
+                            {{post.name}}
+                        </td>
+                        <td>{{post.user_id}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+        </div>
+    </div>
+    
+    
+{% endblock  %}
