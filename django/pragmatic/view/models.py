@@ -15,6 +15,7 @@ class CivitTest(models.Model):
     model_hash = models.CharField(max_length=20, blank=True, null=True)
     clip_skip = models.IntegerField(blank=True, null=True)
     denoising_strength = models.CharField(max_length=10, blank=True, null=True)
+    img = models.TextField(blank=True, null=True)
     class Meta:
         managed = False
         db_table = 'civit_test'
