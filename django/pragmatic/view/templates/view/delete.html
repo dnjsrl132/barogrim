@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .testing{
+            background-color: white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+    </style>
+    <div class="container">
+        <h1 class="pragmatic_logo">
+            delete
+        </h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            name
+            <input name="user_id" type="text" value="">
+            <br><br>
+            <input class="btn btn-primary" type="submit" value="POST">
+        </form>
+    </div>
+{% endblock  %}

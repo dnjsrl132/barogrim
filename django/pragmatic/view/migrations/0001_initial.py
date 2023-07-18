@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CivitTest',
             fields=[
-                ('user_id', models.CharField(max_length=10, primary_key=True, serialize=False)),
+                ('user_id', models.CharField(max_length=40, primary_key=True, serialize=False)),
                 ('name', models.CharField(blank=True, max_length=255, null=True)),
                 ('file_link', models.CharField(blank=True, max_length=255, null=True)),
                 ('prompt', models.TextField(blank=True, null=True)),

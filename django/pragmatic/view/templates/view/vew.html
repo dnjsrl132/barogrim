@@ -16,14 +16,18 @@
             <div>
                 <table class="table-contents" style="padding:10px; text-align:center;">
                     <tr>
+                        <th>user</th>
                         <th>name</th>
+                        <th>image</th>
                         <th>prompt</th>
                         <th>model</th>
                     </tr>
                     {% for post in posts %}
                     <tr>
+                        <td>{{post.user_id}}</td>
+                        <td>{{post.name}}</td>
                         <td>
-                            <img src="{{post.name}}"/>
+                            <img src="{{post.file_link}}"/>
                         </td>
                         {% comment %} <td>{{post.name}}</td> {% endcomment %}
                         <td>{{post.prompt}}</td>

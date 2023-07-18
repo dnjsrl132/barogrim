@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class CivitTest(models.Model):
-    user_id = models.CharField(primary_key=True, max_length=10)
+    user_id = models.CharField(primary_key=True, max_length=40)
     name = models.CharField(max_length=255, blank=True, null=True)
     file_link = models.CharField(max_length=255, blank=True, null=True)
     prompt = models.TextField(blank=True, null=True)

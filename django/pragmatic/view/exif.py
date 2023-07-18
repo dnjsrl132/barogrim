@@ -3,13 +3,16 @@ from PIL import Image
 from PIL.ExifTags import TAGS
 import time
 import datetime
+from view.models import CivitTest
+home="http://127.0.0.1:8000/"
 # Create your views here.
 def Exif(url,user_id):
-    new_posts=CivitTest()
-    response=requests.get(url,stream=True)
-    name_id=url.split('/')
-    name_=name_id[len(name_id)-1]
-    image=Image.open(response.raw)
+    
+    #response=requests.get(url,stream=True)
+    name_id=home+url
+    name_=name_id.split('/')
+    name_=name_[len(name_)-1]
+    image=Image.open(url)
     exif_data=image._getexif()
     taglabel={}
     dict={}
@@ -58,12 +61,26 @@ def Exif(url,user_id):
                     dict[datakey]=datavalue
         except:
             dict["Sample"]="NULL"
-        new_posts.user_id=user_id
-        new_posts.name = url
-        new_posts.file_link = url
-        new_posts.prompt = dict['prompt']
-        new_posts.negative_prompt = dict['negative']
+        temp_dic=[user_id,name_,name_id,dict['prompt'],dict['negative']if "negative" in dict else "NULL",dict['Size'] if "Size" in dict else "NULL",
+                              dict['Steps'] if "Steps" in dict else "NULL",dict['Sampler'] if "Sampler" in dict else "NULL",dict['CFGscale'] if "CFGscale" in dict else "NULL",
+                              dict['Seed'] if "Seed" in dict else "NULL",dict['Modelhash'] if "Modelhash" in dict else "NULL",
+                              dict['Clipskip'] if "Clipskip" in dict else 0,dict['Denoisingstrength'] if "Denoisingstrength" in dict else "NULL"]
+        
+        new_posts=CivitTest()     
+        new_posts.user_id = temp_dic[1]
+        new_posts.name = temp_dic[2]
+        new_posts.file_link = temp_dic[2]
+        new_posts.prompt = temp_dic[3]
+        new_posts.negative_prompt = temp_dic[4]
         ts=time.time()
         new_posts.timestamp = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-        #steps
-    
+        new_posts.steps = temp_dic[6]
+        new_posts.sampler = temp_dic[7]
+        new_posts.cfg_scale = temp_dic[8]
+        new_posts.seed = temp_dic[9]
+        new_posts.model_hash = temp_dic[10]
+        new_posts.clip_skip = temp_dic[11]
+        new_posts.denoising_strength = temp_dic[12]
+        
+    new_posts.save()
+    return 0
