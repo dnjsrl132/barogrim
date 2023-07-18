@@ -6,14 +6,10 @@ import datetime
 from view.models import CivitTest
 import re
 
-home="http://127.0.0.1:8000/"
+
 # Create your views here.
-def Exif(image,user_id,url,encode):
+def Exif(image,user_id,name_,encode):
     
-    #response=requests.get(url,stream=True)
-    name_id=home+url
-    name_=name_id.split('/')
-    name_=name_[len(name_)-1]
     #image=Image.open(url)
     exif_data=image._getexif()
     taglabel={}
