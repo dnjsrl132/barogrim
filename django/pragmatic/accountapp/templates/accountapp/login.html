@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+    <style>
+        .testing{
+            background-color: white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+    </style>
+    <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
+        <h1 class="pragmatic_logo">
+            login
+        </h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% comment %} {{form}} {% endcomment %}
+            {% bootstrap_form form%}
+            <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+        </form>
+    </div>
+{% endblock  %}
