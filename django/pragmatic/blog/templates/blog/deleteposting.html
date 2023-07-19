@@ -10,14 +10,13 @@
     </style>
     <div style="text-align: center;">
         <h1 class="pragmatic_logo">
-            post!
+            delete
         </h1>
-        <a href ="/blog/{{post.pk}}/remove">delete</a>
-        <table style="padding:10px; text-align:center;">
-            <p>{{post.postname}}</p>
-            <p>{{post.contents}}</p>
-            <a href="/blog/">list</a>
-        </table>
+        <form method="POST">
+            {% csrf_token %}
+            <h3>{{Post.postname}} delete</h3>
+            <button>delete</button>
+        </form>
     </div>
     
     
