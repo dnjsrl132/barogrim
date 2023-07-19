@@ -13,7 +13,7 @@
         <h1 class="pragmatic_logo">
             change!
         </h1>
-        <form action="{% url 'accountapp:update' pk=user.pk %}" method="POST">
+        <form action="{% url 'accountapp:update' pk=target_user.pk %}" method="POST">
             {% csrf_token %}
             {% bootstrap_form form%}
             <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
