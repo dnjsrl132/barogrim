@@ -12,6 +12,9 @@
         <h1 class="pragmatic_logo">
             Civit List!
         </h1>
+        <a href="{% url 'view:delete'%}">
+            delete
+        </a>
         <div style="text-align: center;margin: 2rem 0;">
             <div>
                 <table class="table-contents" style="padding:10px; text-align:center;">
@@ -24,7 +27,11 @@
                     </tr>
                     {% for post in posts %}
                     <tr>
-                        <td>{{post.user_id}}</td>
+                        <td>
+                            <a href="{{post.user_id}}/">
+                                {{post.user_id}}
+                            </a>
+                        </td>
                         <td>{{post.name}}</td>
                         <td>
                             <img src="data:image/jpg;base64,{{post.img}}" alt="Base64 Image"/>
