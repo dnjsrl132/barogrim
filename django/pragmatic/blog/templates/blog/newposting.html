@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .testing{
+            background-color: white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+    </style>
+    <div style="text-align: center;">
+        <h1 class="pragmatic_logo">
+            write!
+        </h1>
+        <form method="POST">
+            {% csrf_token %}
+            title<br>
+            <input type="text" name="postnmae"><br>
+            content<br>
+            <textarea rows="10" cols="50" name="contents"></textarea><br>
+            <input type="submit" value="write">
+        </form>
+    </div>
+    
+    
+{% endblock  %}

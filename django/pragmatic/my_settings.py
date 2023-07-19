@@ -4,8 +4,8 @@ DATABASES = {
         'NAME':'grim',
         'USER': 'grim',
         'PASSWORD': '1111',
-        'HOST': '3.39.195.100',
-        'PORT': '52409'
+        'HOST': '15.164.231.65',
+        'PORT': '55746'
     }
 }
 SECRET_KEY='django-insecure-#(z@*6yfj&lds*w6dgy4#v@$iq%*-b)jsw&un6lh01&)7lz3sh'

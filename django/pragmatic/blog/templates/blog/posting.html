@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .testing{
+            background-color: white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+    </style>
+    <div style="text-align: center;">
+        <h1 class="pragmatic_logo">
+            post!
+        </h1>
+        <table style="padding:10px; text-align:center;">
+            <p>{{post.postname}}</p>
+            <p>{{post.contents}}</p>
+            <a href="/blog/">list</a>
+        </table>
+    </div>
+    
+    
+{% endblock  %}
