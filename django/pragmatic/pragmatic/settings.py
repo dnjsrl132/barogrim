@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'view',
     'blog',
     'bootstrap4',
+    'profileapp',
 ]
 
 MIDDLEWARE = [
