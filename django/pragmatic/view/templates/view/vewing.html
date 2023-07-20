@@ -4,46 +4,18 @@
         <h1 class="pragmatic_logo">
             Civit List!
         </h1>
-        <div style="text-align: center;margin: 2rem 0;">
-            <div>
-                <img src="data:image/jpg;base64,{{post.img}}" alt="Base64 Image"/>
+        <div style="text-align: center;margin: 2rem auto;">
+            <img src="data:image/jpg;base64,{{post.img}}" alt="Base64 Image"/>
+            <div style="text-align: center;margin: 0 35%;">
                 <table>
-                    {% for key,value in post.items %}
-                        <tr>
-                            <td>{{key}}</td>
-                            <td>{{value}}</td>
-                        </tr>
+                    {% for name,value in post.items %}
+                    {% if name != "img" %}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{value}}</td>
+                    </tr>
+                    {% endif %}    
                     {% endfor %}
-                </table>
-                <table class="table-contents" style="padding:10px; text-align:center;">
-                    <tr>
-                        <th>name</th>
-                        <th>user_id</th>
-                        <th>prompt</th>
-                        <th>negative_prompt</th>
-                        <th>timestamp</th>
-                        <th>stemps</th>
-                        <th>sampler</th>
-                        <th>cfg_scale</th>
-                        <th>seed</th>
-                        <th>model_hash</th>
-                        <th>clip_skip</th>
-                        <th>denoising_strength</th>
-                    </tr>
-                    <tr>
-                        <td>{{post.user_id}}</td>
-                        <td>{{post.name}}</td>
-                        <td>{{post.prompt}}</td>
-                        <td>{{post.negative_prompt}}</td>
-                        <td>{{post.timestamp}}</td>
-                        <td>{{post.stemps}}</td>
-                        <td>{{post.sampler}}</td>
-                        <td>{{post.cfg_scale}}</td>
-                        <td>{{post.seed}}</td>
-                        <td>{{post.model_hash}}</td>
-                        <td>{{post.clip_skip}}</td>
-                        <td>{{post.denoising_strength}}</td>
-                    </tr>
                 </table>
             </div>
         </div>

@@ -20,8 +20,11 @@ def vew(request):
 def vewing(request,user_id):
     post=CivitTest.objects.get(user_id=user_id)
     post.img=str(post.img).replace("b\'","")[:-1]
-    #post_dict=model_to_dict(post)
-    return render(request,'view/vewing.html',{'post':post})
+    post_dict=model_to_dict(post)
+    temp=post_dict['user_id']
+    post_dict['user_id']=post_dict['name']
+    post_dict['name']=temp
+    return render(request,'view/vewing.html',{'post':post_dict})
 
 def delete(request):
     if request.method == 'POST':

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 {% block content %}
     <style>
         .testing{
@@ -19,6 +20,40 @@
             <a href="/blog/">list</a>
         </table>
     </div>
+    <div>
+        <h4>comment_list</h4>
+        {% if comments %}
+        <p><b>comments have {{comments|length}}</b></p>
+        {% endif %}
+        <ul>
+            {% for comment in comments %}
+            <li>
+                {{comment.user}} - {{comment.content}}
+                {% if user == comment.user %}
+                <form action="{% url 'blog:comments_delete' post.pk comment.pk %}" method="POST" class="d-inline">
+                    {% csrf_token %}
+                    <input type="submit" value="DELETE">
+                </form>
+                {% endif %}
+            </li>
+            {% empty %}
+            <p> no comment </p>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        {% if request.user.is_authenticated %}
+        <form action="{% url 'blog:comments_create' post.pk %}" method="POST">
+            {% csrf_token %}
+            content<br>
+            <textarea rows="10" cols="50" name="content"></textarea><br>
+            <input type="submit">
+        </form>
+        {% else %}
+        <a href="{% url 'accountapp:login' %}"> make comment need login </a>
+        {% endif %}
+    </div>
+
     
     
 {% endblock  %}

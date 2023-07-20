@@ -4,3 +4,7 @@
 .pragmatic_footer_button{
     font-size: .6rem;
 }
+.table-container{
+    width: 80%;
+    margin: 0 auto;
+}
