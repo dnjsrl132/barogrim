@@ -1,7 +1,7 @@
 <div style="text-align: center;margin: 2rem 0;">
     <div>
         <h1 class="pragmatic_logo">
-            <a href="{% url 'accountapp:hello_world'%}">
+            <a href="{% url 'home'%}">
             pragmatic
             </a>
         </h1>
@@ -18,6 +18,11 @@
             </a>
         </span>
         <span>
+            <a href="{% url 'projectapp:list'%}" class="pragmatic_header_nav">
+                project
+            </a>
+        </span>
+        <span>
             <a href="{% url 'articleapp:list'%}" class="pragmatic_header_nav">
                 post list
             </a>
@@ -30,6 +35,9 @@
                 <span>sigin</span>
             </a>
         {% else %}
+            <a href="{% url 'subscribeapp:list'%}" class="pragmatic_header_nav">
+                <span>Subscription</span>
+            </a>
             <a href="{% url 'accountapp:detail' pk=user.pk %}" class="pragmatic_header_nav">
                 <span>Mypage</span>
             </a>

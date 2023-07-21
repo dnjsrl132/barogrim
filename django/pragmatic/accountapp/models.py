@@ -22,8 +22,6 @@ class CivitData(models.Model):
         managed = False
         db_table = 'civit_data'
 
-class HelloWorld(models.Model):
-    text = models.CharField(max_length=255,null=False)
 
 class Test(models.Model):
     id = models.AutoField(primary_key=True)
