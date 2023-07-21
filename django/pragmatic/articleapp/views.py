@@ -33,6 +33,10 @@ class ArticleDetailView(DetailView, FormMixin):
     form_class = CommentCreationForm
     context_object_name = 'target_article'
     template_name = 'articleapp/detail.html'
+    def get_context_data(self, **kwargs):
+        subscription=Images.objects.filter(article_key=self.get_object())[1:]
+        print(type(subscription))
+        return super(ArticleDetailView,self).get_context_data(object_list=subscription,**kwargs)
 
 @method_decorator(article_ownership_required,'get')
 @method_decorator(article_ownership_required,'post')
@@ -41,15 +45,7 @@ class ArticleUpdateView(UpdateView):
     form_class = ArticleCreationForm
     context_object_name = 'target_article'
     template_name = 'articleapp/update.html'
-    def form_valid(self, form):
-        no_instance=self.object.image
-        instance=form.save(commit=False)
-        if no_instance != self.request.FILES:
-            no_instance.delete()
-        else:
-            instance.image=no_instance
-        instance.save()
-        return super().form_valid(form)
+
     def get_success_url(self):
         return reverse('articleapp:detail',kwargs={'pk':self.object.pk})
 
