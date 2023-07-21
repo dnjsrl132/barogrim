@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div style="text-align: center;max-width: 500px; margin: 4rem auto;">
+        
+        <img src="{{target_project.image.url}}" alt="" style="height:12rem;width: 12rem;border-radius:10rem;ovject-fit:cover;">
+        <h2>
+            {{target_project.title}}
+        </h2>
+        <h5> {{target_project.description}}</h5>
+        <a href="{% url 'projectapp:list' %}">list</a>
+    </div>
+    <div>
+        {% include 'snippets/list_fragment.html' with article_list=object_list %}
+    </div>
+{% endblock  %}

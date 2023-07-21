@@ -34,7 +34,7 @@ DEBUG = env('DEBUG')
 # exception if SECRET_KEY not in os.environ
 SECRET_KEY = env('SECRET_KEY')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'profileapp',
     'articleapp',
     'commentapp',
+    'projectapp',
 ]
 
 MIDDLEWARE = [

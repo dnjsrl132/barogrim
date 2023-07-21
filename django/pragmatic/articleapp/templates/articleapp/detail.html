@@ -16,6 +16,11 @@
         </a>
         {% endif %}
         <hr>
+        {% if target_article.project.pk %}
+        <a href="{% url 'projectapp:detail' pk=target_article.project.pk %}">
+            {{target_article.project.title}}
+        </a>
+        {% endif %}
         <div>
         {% for comment in target_article.comments.all %}
             {% include 'commentapp/detail.html' with comment=comment%}

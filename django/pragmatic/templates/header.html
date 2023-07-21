@@ -6,34 +6,34 @@
             </a>
         </h1>
     </div>
-    <div>
+    <div >
         <span>
-            <a href="{% url 'view:upload'%}">
+            <a href="{% url 'view:upload'%}" class="pragmatic_header_nav">
                 upload
             </a>
         </span>
         <span>
-            <a href="{% url 'view:vew'%}">
+            <a href="{% url 'view:vew'%}" class="pragmatic_header_nav">
                 list
             </a>
         </span>
         <span>
-            <a href="{% url 'articleapp:list'%}">
+            <a href="{% url 'articleapp:list'%}" class="pragmatic_header_nav">
                 post list
             </a>
         </span>
         {% if not user.is_authenticated %}
-            <a href="{% url 'accountapp:login' %}">
+            <a href="{% url 'accountapp:login' %}" class="pragmatic_header_nav">
                 <span>login</span>
             </a>
-            <a href="{% url 'accountapp:create' %}">
+            <a href="{% url 'accountapp:create' %}" class="pragmatic_header_nav">
                 <span>sigin</span>
             </a>
         {% else %}
-            <a href="{% url 'accountapp:detail' pk=user.pk %}">
+            <a href="{% url 'accountapp:detail' pk=user.pk %}" class="pragmatic_header_nav">
                 <span>Mypage</span>
             </a>
-            <a href="{% url 'accountapp:logout' %}?next={{request.path}}">
+            <a href="{% url 'accountapp:logout' %}?next={{request.path}}" class="pragmatic_header_nav">
                 <span>logout</span>
             </a>
         {% endif %}
