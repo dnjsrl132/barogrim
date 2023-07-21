@@ -16,7 +16,7 @@
     <h1 class="pragmatic_logo">
         change!
     </h1>
-    <form action="{% url 'articleapp:update' pk=target_article.pk %}" method="POST">
+    <form action="{% url 'articleapp:update' pk=target_article.pk %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form form%}
         <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
