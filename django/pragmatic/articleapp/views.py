@@ -33,6 +33,10 @@ class ArticleDetailView(DetailView, FormMixin):
     form_class = CommentCreationForm
     context_object_name = 'target_article'
     template_name = 'articleapp/detail.html'
+    def get_context_data(self, **kwargs):
+        subscription=Images.objects.filter(article_key=self.get_object())[1:]
+        print(type(subscription))
+        return super(ArticleDetailView,self).get_context_data(object_list=subscription,**kwargs)
 
 @method_decorator(article_ownership_required,'get')
 @method_decorator(article_ownership_required,'post')
@@ -59,4 +63,4 @@ class ArticleListView(ListView):
     context_object_name = 'article_list'
     success_url = reverse_lazy('articleapp:list')
     template_name = 'articleapp/list.html'
-    paginate_by = 1
+    paginate_by = 25

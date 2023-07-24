@@ -1,0 +1,33 @@
+{% load static %}
+<style>
+    .container{
+        padding: 0;
+        margin: 0, auto;
+    }
+    .container a{
+        witdh: 45%;
+        max-width: 250px;
+    }
+    .container div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+      }
+      .container img{
+        text-align: center;
+        width: 100%;
+        border-radius: 1rem;
+      }
+</style>
+
+<div class="container">
+    {% for image in image_list %}
+    <img src="data:image/jpg;base64,{{image.img}}" alt="Base64 Image">
+    <p>{{image.prompt}}</p>
+    {% endfor %}
+</div>
+
+<script src ="{% static 'js/magicgrid.js' %}"></script>
+
+
