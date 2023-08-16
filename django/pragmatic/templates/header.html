@@ -27,6 +27,9 @@
                 post list
             </a>
         </span>
+        <span>
+            <a href="{% provider_login_url 'google' %}">Login with Google</a>
+        </span>
         {% if not user.is_authenticated %}
             <a href="{% url 'accountapp:login' %}" class="pragmatic_header_nav">
                 <span>login</span>
