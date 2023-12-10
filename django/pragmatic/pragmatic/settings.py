@@ -46,10 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    'django.contrib.sites',
     'accountapp',
     'view',
     'bootstrap5',
@@ -58,7 +55,20 @@ INSTALLED_APPS = [
     'commentapp',
     'projectapp',
     'subscribeapp',
+    #allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    #provider
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.naver',
+    'allauth.socialaccount.providers.kakao',
 ]
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
